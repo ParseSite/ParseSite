@@ -1,0 +1,178 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+    <script>
+
+        function rating_stars(id) {
+            var rate = $("." + "_" + id).attr("data-rate");
+            console.log("Loading: rate = ", rate);
+            var percent = 0;
+
+            for (i = 1; i <= 5; i++) {
+                if (rate >= i) {
+                    $("." + i + "_" + id).css('width', '100%');
+                } else {
+                    percent = (rate - i + 1)/5 * 100;
+                    $("." + i + "_" + id).css('width', String(percent) + "%");
+                }
+            }
+
+        }
+
+    </script>
+
+    <div class="container">
+        <div class="row">
+            <main class="posts-listing my-user-page">
+              <div class="row">
+                <div class="col-md-8">
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+
+                <div class="my-content-section">
+                  <div class="media">
+                    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+                    <div class="media-body">
+                      <h2 class="account-heading">{{ user.username }}</h2>
+                        {% if is_itself %}
+                            <p class="text-secondary">{{ user.email }}</p>
+                            <a class="article-title" href="{% url 'profile' %}"><button type="button" class="btn btn-outline-primary">Edit Profile</button></a>
+{#                        <a class="article-title" href="{% url 'post-create' %}"><button type="button" class="btn btn-outline-primary">Create Post</button></a>#}
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+                <section id="tabs">
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-mypost-tab" data-toggle="tab" href="#nav-mypost" role="tab" aria-controls="nav-mypost" aria-selected="true">POSTS</a>
+                            {% if is_itself %}
+                                <a class="nav-item nav-link" id="nav-interest-tab" data-toggle="tab" href="#nav-interest" role="tab" aria-controls="nav-interest" aria-selected="false">SAVED</a>
+                            {% endif %}
+                        </div>
+                    </nav>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-mypost" role="tabpanel" aria-labelledby="nav-mypost-tab">
+                            <!-- Latest Posts -->
+                            <div class="container">
+                                  <div class="row">
+                                        <!-- post -->
+                                    {% for post in posts %}
+
+                                        <div class="post col-md-4">
+
+                                            <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="..." class="img-fluid"></a></div>
+                                            <div class="post-details">
+                                              <div class="post-meta d-flex justify-content-between">
+                                                <div class="category">
+                                                {% for cat in post.categories.all %}
+                                                <a href="{% url 'go_to_category' cat %}">{{ cat }}</a>
+                                                {% endfor %}
+                                                <script>rating_stars({{ post.id }})</script>
+                                                </div>
+                                              </div>
+                                                <div style="margin-top: 10px; margin-bottom: 10px;">
+                                                    <a href="{% url 'show_in_map' post.location.id %}" class="comment">
+                                                        <i style="margin-right: 10px;" class="fa fa-map-marker" aria-hidden="true"></i>{{ post.location.place }}
+                                                    </a>
+                                                </div>
+                                                <a href="{{ post.get_absolute_url }}">
+                                                <h3 class="h4">{{ post.title }}</h3></a>
+                                                <div style="font-size: 14px; float: none; margin-left: 10px; margin-top: 0;"
+                                                     class="c _{{ post.id }}" data-rate='{{ post.get_score }}'>
+                                                  <span class="star star-under fas fa-star"></span>
+                                                  <span class="star star-under fas fa-star"></span>
+                                                  <span class="star star-under fas fa-star"></span>
+                                                  <span class="star star-under fas fa-star"></span>
+                                                  <span class="star star-under fas fa-star"></span>
+
+                                                  <span class="star star-over_1 1_{{ post.id }}  fas fa-star"></span>
+                                                  <span style="left: 15.5px;" class="star star-over_2 2_{{ post.id }}  fas fa-star"></span>
+                                                  <span style="left: 30.9px;" class="star star-over_3 3_{{ post.id }}  fas fa-star"></span>
+                                                  <span style="left: 46.2px;" class="star star-over_4 4_{{ post.id }}  fas fa-star"></span>
+                                                  <span style="left: 61.5px;" class="star star-over_5 5_{{ post.id }}  fas fa-star"></span>
+
+                                                </div>
+                                                <script>rating_stars({{ post.id }})</script>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                        {% if is_itself %}
+                            <div class="tab-pane fade" id="nav-interest" role="tabpanel" aria-labelledby="nav-interest-tab">
+                                <div class="container">
+                                  <div class="row">
+
+                                        {% for savedPost in interest %}
+                                            {% ifequal savedPost.user|stringformat:"s" user.username %}
+
+                                                <div class="post col-md-4">
+                                                    <div class="post-thumbnail"><a href="{{ savedPost.post.get_absolute_url }}"><img src="{{ savedPost.post.image.url }}" alt="..." class="img-fluid"></a></div>
+                                                    <div class="post-details">
+                                                      <div class="post-meta d-flex justify-content-between">
+                                                        <div class="category">
+                                                        {% for cat in savedPost.post.categories.all %}
+                                                        <a href="{% url 'go_to_category' cat %}">{{ cat }}</a>
+                                                        {% endfor %}
+                                                        </div>
+                                                      </div>
+                                                        <div style="margin-top: 10px; margin-bottom: 10px;">
+                                                            <a href="{% url 'show_in_map' savedPost.post.location.id %}" class="comment">
+                                                                <i style="margin-right: 10px;" class="fa fa-map-marker" aria-hidden="true"></i>{{ savedPost.post.location.place }}
+                                                            </a>
+                                                        </div>
+                                                        <a href="{{ savedPost.post.get_absolute_url }}">
+                                                        <h3 class="h4">{{ savedPost.post.title }}</h3></a>
+                                                        <div style="font-size: 14px; float: none; margin-left: 10px; margin-top: 0;"
+                                                             class="c _{{ savedPost.post.id }}" data-rate='{{ savedPost.post.get_score }}'>
+                                                          <span class="star star-under fas fa-star"></span>
+                                                          <span class="star star-under fas fa-star"></span>
+                                                          <span class="star star-under fas fa-star"></span>
+                                                          <span class="star star-under fas fa-star"></span>
+                                                          <span class="star star-under fas fa-star"></span>
+
+                                                          <span class="star star-over_1 1_{{ savedPost.post.id }}  fas fa-star"></span>
+                                                          <span style="left: 15.5px;" class="star star-over_2 2_{{ savedPost.post.id }}  fas fa-star"></span>
+                                                          <span style="left: 31.2px;" class="star star-over_3 3_{{ savedPost.post.id }}  fas fa-star"></span>
+                                                          <span style="left: 46.6px;" class="star star-over_4 4_{{ savedPost.post.id }}  fas fa-star"></span>
+                                                          <span style="left: 62.2px;" class="star star-over_5 5_{{ savedPost.post.id }}  fas fa-star"></span>
+
+                                                        </div>
+                                                        <script>rating_stars({{ savedPost.post.id }})</script>
+                                                      <p class="text-muted">{{ savedPost.post.content }}</p>
+                                                      <footer class="post-footer d-flex align-items-center">
+                                                        <a href="{% url 'user-posts' savedPost.post.author.username %}" class="author d-flex align-items-center flex-wrap">
+                                                          <div class="avatar"><img src="{{ savedPost.post.author.profile.image.url }}" alt="..." class="img-fluid"></div>
+                                                          <div class="title"><span>{{ savedPost.post.author.username }}</span></div>
+                                                        </a>
+                                                        <div class="comments meta-last"><i class="icon-clock"></i>{{ savedPost.post.date_posted|date:"F d, Y" }} </div>
+                                                      </footer>
+                                                    </div>
+                                                </div>
+                                            {% endifequal %}
+                                        {% endfor %}
+                                      </div>
+                                    </div>
+                                </div>
+                        {% endif %}
+                    </div>
+
+                </section>
+            </main>
+        </div>
+    </div>
+
+{% endblock content %}
+

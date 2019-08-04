@@ -1,0 +1,43 @@
+/* Tabs*/
+section {
+    padding: 0 0;
+    margin-top: -50px;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+#tabs{
+	/*background: whitesmoke;*/
+    color: #eee;
+}
+
+#tabs h6.section-title{
+    color: #f3f3f3;
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #f3f3f3;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-top: 4px solid !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    color: #6c757d;
+    font-size: 15px;
+    position: relative;
+    left: calc(50% - 50px);
+}
+
+#tabs .nav-tabs {
+    border-bottom: 1px solid transparent;
+    border-top: solid;
+}

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="474d3fa6-55c4-46c5-b891-06ea0549f6b0" name="Default Changelist" comment="Sprint4">
+      <change afterPath="$PROJECT_DIR$/blog/static/blog/static_in_env/css/custom20.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/static/blog/static_in_env/css/star6.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/static/blog/static_in_env/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/static/blog/static_in_env/js/front.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/static/blog/static_in_env/js/highlight.pack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/templates/blog/map.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/templates/blog/star_rating.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/logo2.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/10-best-shopping-malls-bali_K2mDKMj.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/10-best-shopping-malls-bali_Ofzp946.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/10-best-shopping-malls-bali_pD37xuf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/10-best-shopping-malls-bali_qixhhtc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Danxia_Landform_China_BWOmk1k.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Danxia_Landform_China_I2VSh9m.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Danxia_Landform_China_IK2ELoc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Danxia_Landform_China_uqLekmA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Frankfurt.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Frankfurt_G2eS5Aq.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Frankfurt_KsA9V0Y.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Frankfurt_QDOwJxf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Frankfurt_v3u8fDS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Frankfurt_wTGx9Ag.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Iceland_TLDGqBd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Iceland_l0p9y8M.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Switzerland.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/Switzerland_MQLYUgA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_1qJ1Y2Q.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_2aIGmj0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_2vgy3Cf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_33mFUTT.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_5IBOj6N.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_65W4xjA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_BoKC1FR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_GMB8eG1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_HGoS3FW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_NdTXBNg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_O0cWLNs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_RpSdIgA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_SNdZEl3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_UlClHfO.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_aqGZsKG.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_gFUlQ0F.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_iAyvdTG.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_vrbqZaT.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/cinque_terre_italy_vrr6NDy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/post_image/romania_sighisoara_shutterstock_azgGe0p.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django_geoposition-0.3.0-py3.7.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django_geoposition-0.3.0-py3.7.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django_geoposition-0.3.0-py3.7.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django_geoposition-0.3.0-py3.7.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django_geoposition-0.3.0-py3.7.egg-info/not-zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django_geoposition-0.3.0-py3.7.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/example/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/example/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/example/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/example/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/example/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/example/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/conf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/fields.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/locale/cs/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/locale/cs/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/static/geoposition/geoposition.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/static/geoposition/geoposition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/templates/geoposition/widgets/geoposition.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/tests/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/tests/test_geoposition.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/tests/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/Lib/site-packages/geoposition/widgets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Parse.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Parse.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parse/context_processors.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parse/context_processors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parse/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parse/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parse/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parse/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/blog/searchBar2.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/blog/searchBar3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/blog/static_in_env/css/custom9.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/blog/static_in_env/css/style.blue14.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/blog/static_in_env/css/style.blue19.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_search_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/blog_search_results.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/notif.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/notif.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/post_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/post_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/temp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/1.260x260.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/1.260x2602.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20170319_174156.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20170319_174156_XGwFRii.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20170505_180905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20170505_180905_w7h1crb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20170720_175841.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20170720_175841_mP1MZ3B.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20180324_192126.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20180324_192143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20180326_144339.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20180326_144733.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20180326_144733_2O1yZx6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/20180326_154823.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/3_o32I5Eg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/5_dPI1pRD.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/maxresdefault-1024x576.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/rBVaEVcY136AJc3fAAjTEhU33v4648.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/rBVaEVcY136AJc3fAAjTEhU33v4648_H3lmreY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/post_image/vincent-van-gogh-the-starry-night-handpainted.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/20170319_174156.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/20180326_144733.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/3_V1VQcYO.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/3_mPVZkBe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/3_vCvEryU.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/profile_pics/default.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/user_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/user_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="KEEP" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\University\this Term\Analysis&amp;Design\HWs\Project\Parse\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/.gitignore" />
+        <option value="$PROJECT_DIR$/.idea/encodings.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1OpLZs71jmZPdpp32rC3N7p6VKQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\University\this Term\Analysis&amp;Design\HWs\Project\Parse\media" />
+      <recent name="D:\University\this Term\Analysis&amp;Design\HWs\Project\Parse\users\migrations" />
+      <recent name="D:\University\this Term\Analysis&amp;Design\HWs\Project\Parse\blog\migrations" />
+      <recent name="D:\University\this Term\Analysis&amp;Design\HWs\Project\Parse" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\University\this Term\Analysis&amp;Design\HWs\Project\Parse\media\profile_pics" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="474d3fa6-55c4-46c5-b891-06ea0549f6b0" name="Default Changelist" comment="Sprint4" />
+      <created>1564414986962</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564414986962</updated>
+      <workItem from="1564414998110" duration="12395000" />
+      <workItem from="1564470354146" duration="13204000" />
+      <workItem from="1564491015050" duration="66250000" />
+      <workItem from="1564669669158" duration="15313000" />
+      <workItem from="1564816436799" duration="79375000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Sprint4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sprint4" />
+  </component>
+</project>

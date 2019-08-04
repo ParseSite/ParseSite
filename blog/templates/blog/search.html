@@ -1,0 +1,49 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+                      {% if submitbutton == 'Search' and request.GET.q != '' %}
+            {% if results %}
+                <h2>Results for <b>{{ request.GET.q }}</b></h2>
+                {% for result in results %}
+                     <div class="content-section">
+                        <div class="media">
+                            <img class="rounded-circle account-img" src="{{ result.profile.image.url }}">
+                            <div class="media-body">
+                                <a class="account-heading" href="{% url 'user-posts' result.username %}">{{ result.username }}</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+            No search results for this query
+            <main role="main" class="container">
+              <div class="row">
+                  <div class="col-md-8">
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                  </div>
+              </div>
+            </main>
+            {% endif %}
+            {% endif %}
+        </div>
+      </div>
+    </main>
+
+{% endblock %}

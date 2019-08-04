@@ -1,0 +1,108 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <script>
+
+        function rating_stars() {
+            var rate = $(".c").attr("data-rate");
+            console.log("Loading: rate = ", rate);
+            var percent = 0;
+
+            for (i = 1; i <= 5; i++) {
+                if (rate >= i) {
+                    $(".star-over_"+i).css('width', '100%');
+                } else {
+                    percent = (rate - i + 1)/5 * 100;
+                    $(".star-over_"+i).css('width', String(percent) + "%");
+                }
+            }
+
+        }
+
+    </script>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-9">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+            </div>
+          </div>
+
+            <h3 class="mb-3">Notifications</h3>
+            {% for notif in notifications %}
+{#                {% ifequal notif.post.author|stringformat:"s" user.username %}#}
+                    <article class="media content-section">
+                        <div class="media-body">
+                            <div class="article-metadata">
+                              <small class="text-muted">{{ notif.dateposted|date:"F d, Y" }}</small>
+                            </div>
+                            <div class="my_notif_post">
+                                <a href="{{ notif.post.get_absolute_url }}">
+                                    <img src="{{ notif.post.image.url }}" alt="..." class="my_notif_post_img">
+                                </a>
+{#                                <h6><a class="article-title my_article_title" href="{{ notif.post.get_absolute_url }}">{{ notif.post.title }}</a></h6>#}
+                            </div>
+                            <div class="post post-footer d-flex align-items-center flex-column flex-sm-row">
+                                <a href="{% url 'user-posts' notif.user.username %}" class="author d-flex align-items-center flex-wrap">
+                                    <div class="avatar"><img src="{{ notif.user.profile.image.url }}" alt="..." class="img-fluid"></div>
+                                    <div class="my_title"><span>{{ notif.user.username }}</span></div>
+                                </a>
+                                {% if notif.type == "comment" %}
+                                    <div class="mine">commented on your post: </div>
+                                {% elif notif.type == "rate" %}
+                                    <div class="mine">rated your post: <var>{{ notif.Text }}/5</var></div>
+                                {% elif notif.type == "like_comment" %}
+                                    <div class="mine">liked your comment: </div>
+                                {% elif notif.type == "dislike_comment" %}
+                                    <div class="mine">disliked your comment: </div>
+                                {% endif %}
+
+                            </div>
+                            {% if notif.type == "comment" %}
+                                    <p class="my_notif_post_content article-content"> " {{ notif.Text }}" </p>
+                                {% elif notif.type == "rate" %}
+                                    <div class="my_notif_post_content article-content"> Average Rating: </div>
+                                    <div style="float: left; margin-left: 200px; margin-top: -17px" class="c" data-rate='{{ notif.post.get_score }}'>
+                                         <span class="star star-under fas fa-star"></span>
+                                          <span class="star star-under fas fa-star"></span>
+                                          <span class="star star-under fas fa-star"></span>
+                                          <span class="star star-under fas fa-star"></span>
+                                          <span class="star star-under fas fa-star"></span>
+
+                                          <span class="star star-over_1  fas fa-star"></span>
+                                          <span class="star star-over_2  fas fa-star"></span>
+                                          <span class="star star-over_3  fas fa-star"></span>
+                                          <span class="star star-over_4  fas fa-star"></span>
+                                          <span class="star star-over_5  fas fa-star"></span>
+                                    </div>
+                                    <script>rating_stars()</script>
+
+                                {% elif notif.type == "like_comment" %}
+                                    <p class="my_notif_post_content article-content"> " {{ notif.Text }}" </p>
+                                {% elif notif.type == "dislike_comment" %}
+                                    <p class="my_notif_post_content article-content"> " {{ notif.Text }}" </p>
+                                {% endif %}
+                        </div>
+                    </article>
+{#                {% endifequal %}#}
+            {% endfor %}
+        </div>
+      </div>
+    </main>
+
+
+{% endblock content %}
+

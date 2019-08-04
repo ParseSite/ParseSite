@@ -1,0 +1,140 @@
+{% extends "blog/base.html" %}
+{#{% load static %}#}
+{% block content %}
+
+    <script>
+
+        function rating_stars(id) {
+            var rate = $("." + "_" + id).attr("data-rate");
+            console.log("Loading: rate = ", rate);
+            var percent = 0;
+
+            for (i = 1; i <= 5; i++) {
+                if (rate >= i) {
+                    $("." + i + "_" + id).css('width', '100%');
+                } else {
+                    percent = (rate - i + 1)/5 * 100;
+                    $("." + i + "_" + id).css('width', String(percent) + "%");
+                }
+            }
+
+        }
+
+    </script>
+
+    <div class="container">
+        <div class="row">
+            <main class="posts-listing my_blog_search_result">
+              <div class="row">
+                <div class="col-md-8">
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+                    {% if posts %}
+                        {% if category and location %}
+                            <h5 style="margin-bottom: 30px">Results for categories: " <b style="color: #162a36;">{{ category }}</b> " and locations: " <b tyle="color: #162a36;">{{ location }}</b> " :</h5>
+                        {% elif category %}
+                            <h4 style="margin-bottom: 30px">Results for categories: " <b style="color: #162a36;">{{ category }}</b> " :</h4>
+                        {% elif location %}
+                            <h4 style="margin-bottom: 30px">Results for locations: " <b style="color: #162a36;">{{ location }}</b> " :</h4>
+                        {% elif blog_search %}
+                            <h4 style="margin-bottom: 30px">Results for " <b style="color: #162a36;">{{ request.GET.q }}</b> " :</h4>
+                        {% endif %}
+                        <p></p>
+                    {% else %}
+                        <h5> No results found.</h5>
+                    {% endif %}
+                <!-- Latest Posts -->
+                <div class="container">
+                      <div class="row">
+                            <!-- post -->
+                        {% for post in posts %}
+
+                            <div class="post col-md-4">
+                                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="..." class="img-fluid"></a></div>
+                                <div class="post-details">
+                                  <div class="post-meta d-flex justify-content-between">
+                                    <div class="category">
+                                    {% for cat in post.categories.all %}
+                                    <a href="{% url 'go_to_category' cat %}">{{ cat }}</a>
+                                    {% endfor %}
+                                    </div>
+                                  </div>
+                                    <div style="margin-top: 10px; margin-bottom: 10px;">
+                                        <a href="{% url 'show_in_map' post.location.id %}" class="comment">
+                                            <i style="margin-right: 10px;" class="fa fa-map-marker" aria-hidden="true"></i>{{ post.location.place }}
+                                        </a>
+                                    </div>
+                                    <a href="{{ post.get_absolute_url }}">
+                                    <h3 class="h4">{{ post.title }}</h3></a>
+                                    <div style="font-size: 14px; float: none; margin-left: 10px; margin-top: 0;"
+                                         class="c _{{ post.id }}" data-rate='{{ post.get_score }}'>
+                                      <span class="star star-under fas fa-star"></span>
+                                      <span class="star star-under fas fa-star"></span>
+                                      <span class="star star-under fas fa-star"></span>
+                                      <span class="star star-under fas fa-star"></span>
+                                      <span class="star star-under fas fa-star"></span>
+
+                                      <span class="star star-over_1 1_{{ post.id }}  fas fa-star"></span>
+                                      <span style="left: 15.5px;" class="star star-over_2 2_{{ post.id }}  fas fa-star"></span>
+                                      <span style="left: 30.9px;" class="star star-over_3 3_{{ post.id }}  fas fa-star"></span>
+                                      <span style="left: 46.2px;" class="star star-over_4 4_{{ post.id }}  fas fa-star"></span>
+                                      <span style="left: 61.5px;" class="star star-over_5 5_{{ post.id }}  fas fa-star"></span>
+
+                                    </div>
+                                    <script>rating_stars({{ post.id }})</script>
+                                  <p class="text-muted">{{ post.content }}</p>
+                                  <footer class="post-footer d-flex align-items-center">
+                                    <a href="{% url 'user-posts' post.author.username %}" class="author d-flex align-items-center flex-wrap">
+                                      <div class="avatar"><img src="{{ post.author.profile.image.url }}" alt="..." class="img-fluid"></div>
+                                      <div class="title"><span>{{ post.author.username }}</span></div>
+                                    </a>
+                                      <div class="comments meta-last"><i class="icon-clock"></i>{{ post.date_posted|date:"F d, Y" }} </div>
+    {#                                    <div class="date"><i class="icon-clock"></i>{{ post.date_posted|timesince }} ago</div>#}
+    {#                                    <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>#}
+                                  </footer>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <!-- Pagination -->
+                    {% if is_paginated %}
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination pagination-template d-flex justify-content-center">
+                            {% if page_obj.has_previous %}
+                                {% if 1 < page_obj.number|add:'-3' %}
+                                    <li class="page-item"><a href="?page=1" class="page-link"><i class="material-icons">first_page</i></a></li>
+                                {% endif %}
+                                <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                            {% endif %}
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                    <li class="page-item"><a href="?page={{ num }}" class="page-link active">{{ page_obj.number }}</a></li>
+                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                    <li class="page-item"><a href="?page={{ num }}" class="page-link">{{ num }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+                                {% if page_obj.paginator.num_pages > page_obj.number|add:'3' %}
+                                    <li class="page-item"><a href="?page={{ page_obj.paginator.num_pages }}" class="page-link"><i class="material-icons">last_page</i> </a></li>
+                                {% endif %}
+                            {% endif %}
+                          </ul>
+                        </nav>
+                    {% endif %}
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+{% endblock content %}

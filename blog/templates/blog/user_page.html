@@ -1,0 +1,92 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <main class="posts-listing col-lg-8">
+              <div class="row">
+                <div class="col-md-8">
+                  {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+
+                <div class="content-section">
+                  <div class="media">
+                    <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+                    <div class="media-body">
+                      <h2 class="account-heading">{{ user.username }}</h2>
+                      <p class="text-secondary">{{ user.email }}</p>
+                         <a class="article-title" href="{% url 'profile' %}"><button type="button" class="btn btn-outline-primary">Edit Profile</button></a>
+                        <a class="article-title" href="{% url 'post-create' %}"><button type="button" class="btn btn-outline-primary">Create Post</button></a>
+                    </div>
+                  </div>
+                </div>
+
+            <section id="tabs">
+				<nav>
+					<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+						<a class="nav-item nav-link active" id="nav-mypost-tab" data-toggle="tab" href="#nav-mypost" role="tab" aria-controls="nav-mypost" aria-selected="true">my post</a>
+						<a class="nav-item nav-link" id="nav-interest-tab" data-toggle="tab" href="#nav-interest" role="tab" aria-controls="nav-interest" aria-selected="false">saved post</a>
+					</div>
+				</nav>
+                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="nav-mypost" role="tabpanel" aria-labelledby="nav-mypost-tab">
+                        <!-- Latest Posts -->
+                <div class="container">
+                      <div class="row">
+                            <!-- post -->
+                        {% for post in posts %}
+
+                            <div class="post col-xl-6">
+                                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src="{{ post.image.url }}" alt="..." class="img-fluid"></a></div>
+                                <div class="post-details">
+                                  <div class="post-meta d-flex justify-content-between">
+                                    <div class="category">
+                                    {% for cat in post.categories.all %}
+                                    <a href="#">{{ cat }}</a>
+                                    {% endfor %}
+                                    </div>
+                                  </div><a href="{{ post.get_absolute_url }}">
+                                    <h3 class="h4">{{ post.title }}</h3></a>
+                                  <p class="text-muted">{{ post.content }}</p>
+                                  <footer class="post-footer d-flex align-items-center">
+                                    <a href="{% url 'user-posts' post.author.username %}" class="author d-flex align-items-center flex-wrap">
+                                      <div class="avatar"><img src="{{ post.author.profile.image.url }}" alt="..." class="img-fluid"></div>
+                                      <div class="title"><span>{{ post.author.username }}</span></div>
+                                    </a>
+                                    <div class="comments meta-last"><i class="icon-clock"></i>{{ post.date_posted|date:"F d, Y" }} </div>
+{#                                    <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>#}
+                                  </footer>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-interest" role="tabpanel" aria-labelledby="nav-interest-tab">
+
+
+                    </div>
+            </div>
+
+
+            </section>
+
+                
+            </main>
+            {% include 'blog/sidebar.html' with most_recent=most_recent category_count=category_count %}
+        </div>
+    </div>
+
+{% endblock content %}

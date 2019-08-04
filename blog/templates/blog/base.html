@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+{% include 'blog/head.html' %}
+
+<body>
+
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div style="position: relative; max-height: 70px;" class="container my_header">
+          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Parse</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+            <!-- Navbar center -->
+                <div id="search_box" style="position: absolute; left: 30%; max-height: 40px;" class="navbar-nav">
+                <form autocomplete="off" class="search-box" action="{% url 'search' %}" method="GET" value="{{ request.GET.q }}" xmlns="http://www.w3.org/1999/html">
+                    <input autocomplete="false" name="hidden" type="text" style="display:none;">
+                    <div style="float: left;" class="search-box autocomplete">
+                        <input style="" id="myUserSearchInput" type="text" class="textbox" name="q" placeholder="Search a user"/>
+                    </div>
+                        <button id="my_search_btn" type="submit" name="submit" value="Search" class="button"><i class="fa fa-search"></i></button>
+                </form>
+                </div>
+
+            <!-- Navbar Right Side -->
+            <div id="nav_items" style="position: absolute; top: 0; right: 0;" class="navbar-nav">
+              {% if request.user.is_authenticated %}
+                <a style="" class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
+
+                  <a class="nav-item nav-link" href="{% url 'my-notif'%}"><i class="fa fa-bell" style="font-size:24px"></i>
+                        {% ifnotequal num 0 %}
+                            <div class="my_notif_num">{{ num }}</div>
+                        {% endifnotequal %}
+
+                </a>
+                <a class="nav-item nav-link" href="{% url 'user_page' request.user.username %}"><i style="font-size:24px" class="fas fa-user"></i></a>
+                <a class="nav-item nav-link" href="{% url 'logout' %}"><i style="font-size:24px" class="fa">&#xf08b;</i></a>
+              {% else %}
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+              {% endif %}
+            </div>
+          </div>
+      </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    {% include 'blog/footer.html' %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.2/iconify.min.js"></script>
+
+    <script>
+         {#$(".navbar").animate({height:'70px'});#}
+
+         $(window).resize(function () {
+             if ($(document).width() < 550) {
+                $("#search_box").hide();
+             } else {
+                 $("#search_box").show();
+             }
+         });
+
+         $(function() {
+
+            var prevScroll = $(document).scrollTop();
+            flag = 'up';
+            num_up = 0;
+            num_down = 0;
+
+            $(window).scroll(function() {
+                var newScroll = $(document).scrollTop();
+                var navbar = $(".navbar");
+                if (newScroll < prevScroll && flag == 'down') {
+                    num_up += 1;
+                }
+                if (newScroll > prevScroll && flag == 'up') {
+                    num_down += 1;
+                }
+                if((newScroll < prevScroll) && (newScroll <= 50 || num_up > 20) && flag == 'down') {
+                    // Scrolled up
+                    console.log('up');
+                    navbar.animate({height:'70px'}, 1);
+                    navbar.animate({opacity: '1'}, 1);
+                    flag = 'up';
+                    num_up = 0;
+                }
+                if ((newScroll > prevScroll) && num_down > 10 && flag == 'up'){
+                    // Scrolled down
+                    console.log('down');
+                    navbar.animate({height:'40px'});
+                    navbar.animate({opacity: '0'});
+                    flag = 'down';
+                    num_down = 0;
+                }
+                prevScroll = newScroll;
+            });
+        });
+
+        function blog_search_autocomplete(inp, arr) {
+          /*the autocomplete function takes two arguments,
+          the text field element and an array of possible autocompleted values:*/
+          var currentFocus;
+          /*execute a function when someone writes in the text field:*/
+          inp.addEventListener("input", function(e) {
+              var a, b, i, val = this.value;
+              val = val.trim();
+              /*close any already open lists of autocompleted values*/
+              closeAllLists();
+              if (!val) { return false;}
+              currentFocus = -1;
+              /*create a DIV element that will contain the items (values):*/
+              a = document.createElement("DIV");
+              a.setAttribute("id", this.id + "autocomplete-list");
+              a.setAttribute("class", "scroll autocomplete-items");
+              /*append the DIV element as a child of the autocomplete container:*/
+              this.parentNode.appendChild(a);
+              /*for each item in the array...*/
+              for (i = 0; i < arr.length; i++) {
+                /*check if the item starts with the same letters as the text field value:*/
+
+                arr_i = arr[i].user__username;
+                arr_i_image = arr[i].image;
+
+                for (j = 0; j < (arr_i.length - val.length); j++){
+                    if (arr_i.substr(j, val.length).toUpperCase() == val.toUpperCase()) {
+                      /*create a DIV element for each matching element:*/
+                      b = document.createElement("DIV");
+                      {#b.className = "post-footer d-flex align-items-center flex-column flex-sm-row";#}
+                      /*make the matching letters bold:*/
+                        {#b.addClass("post-footer d-flex align-items-center flex-column flex-sm-row");#}
+                        b.className += "post post-footer d-flex align-items-center flex-column flex-sm-row";
+                        b.style.margin = 0;
+                        b.innerHTML = "<a class='author d-flex align-items-center flex-wrap'>" +
+                            "<a class='avatar'><img src='/media/" + arr_i_image + "' alt='...' class='img-fluid'></a>" +
+                            "<a class='title  meta-last'><span>" + arr_i.substr(0, j) + "<strong>" + arr_i.substr(j, val.length) + "</strong>"
+                            + arr_i.substr((val.length + j)) + "</span></a></a>";
+                      /*insert a input field that will hold the current array item's value:*/
+                      b.innerHTML += "<input type='hidden' value='" + arr_i + "'>";
+                      /*execute a function when someone clicks on the item value (DIV element):*/
+                          b.addEventListener("click", function(e) {
+                          /*insert the value for the autocomplete text field:*/
+                              {#inp.value = inp.value.slice(0, -(val.length));#}
+                              inp.value = this.getElementsByTagName("input")[0].value;
+                          /*close the list of autocompleted values,
+                          (or any other open lists of autocompleted values:*/
+                          {#closeAllLists();#}
+                              setTimeout(function () {
+                                  document.getElementById('my_search_btn').click()
+                              }, 200);
+                      });
+                      a.appendChild(b);
+                      break;
+                    }
+                }
+              }
+          });
+          /*execute a function presses a key on the keyboard:*/
+          inp.addEventListener("keydown", function(e) {
+              var x = document.getElementById(this.id + "autocomplete-list");
+              if (x) x = x.getElementsByTagName("div");
+              if (e.keyCode == 40) {
+                /*If the arrow DOWN key is pressed,
+                increase the currentFocus variable:*/
+                currentFocus++;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 38) { //up
+                /*If the arrow UP key is pressed,
+                decrease the currentFocus variable:*/
+                currentFocus--;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 188) {
+                  {#closeAllLists(e.target);#}
+              } else if (e.keyCode == 13) {
+                  /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                  e.preventDefault();
+                  if (currentFocus > -1) {
+                      /*and simulate a click on the "active" item:*/
+                      if (x) x[currentFocus].click();
+                  }
+                  setTimeout(function () {
+                      document.getElementById('my_search_btn').click()
+                  }, 200);
+              }
+          });
+          function addActive(x) {
+            /*a function to classify an item as "active":*/
+            if (!x) return false;
+            /*start by removing the "active" class on all items:*/
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            /*add class "autocomplete-active":*/
+            x[currentFocus].classList.add("autocomplete-active");
+            if (currentFocus >= 3) {
+                x[currentFocus].parentNode.scrollTop = x[currentFocus-2].offsetTop;
+            } else {
+                x[currentFocus].parentNode.scrollTop = x[0].offsetTop;
+            }
+          }
+          function removeActive(x) {
+            /*a function to remove the "active" class from all autocomplete items:*/
+            for (var i = 0; i < x.length; i++) {
+              x[i].classList.remove("autocomplete-active");
+            }
+          }
+          function closeAllLists(elmnt) {
+            /*close all autocomplete lists in the document,
+            except the one passed as an argument:*/
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+              if (elmnt != x[i] && elmnt != inp) {
+              x[i].parentNode.removeChild(x[i]);
+            }
+          }
+        }
+        /*execute a function when someone clicks in the document:*/
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+        }
+
+        /*An array containing all the country names in the world:*/
+    {#var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];#}
+
+         window.onpageshow = function() {
+            myfunction({{profiles|safe}});
+
+        };
+
+         function myfunction(data) {
+             console.log(data);
+             blog_search_autocomplete(document.getElementById("myUserSearchInput"), data);
+         }
+
+         $(document).ready(function () {
+             if ($(document).width() < 550) {
+                $("#search_box").hide();
+             } else {
+                 $("#search_box").show();
+             }
+        });
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+{#autocomplete(document.getElementById("myInput"), countries);#}
+
+
+    </script>
+
+    {% block jQuery %}{% endblock %}
+</body>
+</html>
+
+{#$.ajax({#}
+{#                url: 'users_search',#}
+{#                dataType: 'json',#}
+{##}
+{#                success: function(data){#}
+{#                    console.log(data);#}
+{#                    console.log(data.profiles[0].user__username);#}
+{#                    blog_search_autocomplete(document.getElementById("myUserSearchInput"), data.profiles);#}
+{#                }, error: function(error){#}
+{#                  console.log(error);#}
+{#                  console.log("error")#}
+{#                }#}
+{#            });#}
